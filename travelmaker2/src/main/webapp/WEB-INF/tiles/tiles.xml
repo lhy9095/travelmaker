@@ -1,0 +1,28 @@
+<!DOCTYPE tiles-definitions PUBLIC
+ "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+ "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="tilesbase" template="/WEB-INF/views/tiles/layout.jsp">
+		<!-- 레이아웃 적용 -->
+		<put-attribute name="header" value="/WEB-INF/views/tiles/header.jsp" />
+		<put-attribute name="body" 	 value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/tiles/footer.jsp" />
+	</definition>
+
+ 	<definition name="nolayout" template="/WEB-INF/views/tiles/nolayout.jsp">
+		<!-- 레이아웃 적용 안함 -->
+		<put-attribute name="header" value="" />
+		<put-attribute name="footer" value="" />
+	</definition>
+	<definition name="board/rvList" extends="nolayout">
+		<put-attribute name="body"	value="/WEB-INF/views/board/rvList.jsp" />
+	</definition>
+	<definition name="member/loginForm" extends="nolayout">
+		<put-attribute name="body"	value="/WEB-INF/views/member/loginForm.jsp" />
+	</definition>
+
+	<!-- (2) {1}에는 폴더명 {2}에는 jsp이름 사용 --> 
+	<definition name="*/*" extends="tilesbase">
+		<put-attribute name="body"	value="/WEB-INF/views/{1}/{2}.jsp" />
+	</definition>
+</tiles-definitions>

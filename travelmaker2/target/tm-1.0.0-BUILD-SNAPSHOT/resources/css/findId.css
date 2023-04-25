@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+body {
+	margin: 0;
+}
+
+.wrap {
+	width: 100vw;
+    height: 100vh;
+    background-color: #fafafa;
+    text-align: center;
+}
+
+.findId {
+	border: 1px solid #bbb;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 400px;
+	height: 300px;
+	margin-left: -200px;
+	margin-top: -150px;
+	background-color: white;
+}
+
+.formDiv {
+	width: 80%;
+	margin: 0 auto;
+}
+
+h2 {
+	text-align: center;
+	margin-bottom: 50px;
+	margin-top: 30px;
+}
+
+.p_space {
+	font-size: 15px;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.link {
+	border:0 solid black;
+	background-color: #5D9FFF;
+	color: white;
+	cursor: pointer;
+	font-weight: bold;
+	padding: 5px;
+	border-radius: 3px;
+	margin: 7px;
+	margin-top: 50px;
+}
+
+.link:hover {
+	opacity: 0.9;
+}

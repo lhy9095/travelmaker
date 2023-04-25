@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="memberns">
+	<!-- 아이디로 검색 -->
+	<select id="select" parameterType="string" resultType="member">
+		select * from member where id=#{id}
+	</select>
+	
+	<!-- 별명 중복 체크 -->
+	<select id="selectNickName" parameterType="string" resultType="member">
+		select * from member where nickName=#{nickName}
+	</select>
+	
+	<!-- 아이디 찾기 -->
+	<select id="selectFindId" parameterType="member" resultType="member">
+		select * from member where name=#{name} and tel=#{tel}
+	</select>
+	
+	<!-- 비밀번호 찾기 -->
+	<select id="selectFindPw" parameterType="member" resultType="member">
+		select * from member where id=#{id} and name=#{name}
+	</select>
+	
+	<!-- 회원가입 -->
+	<insert id="insert" parameterType="member">
+		insert into member values (seq_member_mno.nextval, #{id},#{password},
+			#{name},#{email},#{tel},#{nickName},sysdate,'n')
+	</insert>
+	
+	<!-- 비밀번호 변경 -->
+	<update id="updatePw" parameterType="member">
+		update member set password=#{password} where id=#{id}
+	</update>
+	
+	<!-- 회원정보 수정 -->
+	<update id="update" parameterType="member">
+		update member set password=#{password}, email=#{email}, tel=#{tel},
+			nickName=#{nickName} where id=#{id}
+	</update>
+	
+	<!-- 회원탈퇴 -->
+	<update id="delete" parameterType="string">
+		update member set del='y' where id=#{id}
+	</update>
+	
+	<!-- (관리자 기능) 회원 전체 목록 -->
+	<select id="allMemberList" parameterType="map" resultType="member">
+		select * from (select rownum rn, a.* from (
+		select m.*,
+		(select count(*) from board b where b.mno = m.mno and del = 'n') as boardCnt,
+		(select count(*) from review r where r.mno = m.mno and del = 'n') as reviewCnt
+		from member m order by m.mno desc) a)
+		where rn between #{startRow} and #{endRow}
+	</select>
+		
+	<!-- (관리자 기능) 전체 회원 수 -->
+	<select id="memberTotal" resultType="integer">
+		select count(*) from member
+	</select>
+	
+	<!-- (관리자 기능) 회원 강제탈퇴 -->
+	<update id="deleteMember" parameterType="string">
+		update member set del='a' where id=#{id}
+	</update>
+	
+</mapper>

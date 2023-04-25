@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="likesns">
+	<!-- 회원이 해당 게시글을 좋아요 했는지 조회 -->
+	<select id="select" parameterType="map" resultType="likes" >
+		select * from likes where bno = #{bno} and mno = #{mno}
+	</select>
+	
+	<!-- 좋아요 추가 -->
+	<insert id="insert" parameterType="map">
+		insert into likes values(seq_likes_lno.nextval, #{bno}, #{mno})
+	</insert>
+	
+	<!-- 좋아요 취소 -->
+	<delete id="delete" parameterType="map">
+		delete from likes where bno = #{bno} and mno = #{mno}
+	</delete>
+	
+	<!-- 좋아요 수 조회 -->
+	<select id="getLikes" parameterType="integer" resultType="integer" >
+		select count(*) from likes where bno = #{bno}
+	</select>
+	
+	<!-- 해당 회원이 좋아요한 게시글 수 -->
+	<select id="likesTotal" parameterType="integer" resultType="integer" >
+		select count(*) from likes where mno = #{mno}
+	</select>
+	
+	<!-- 좋아요 삭제(게시글 삭제될 때 같이 삭제) -->
+	<delete id="deleteAll" parameterType="integer">
+		delete from likes where bno = #{bno}
+	</delete>
+
+</mapper>

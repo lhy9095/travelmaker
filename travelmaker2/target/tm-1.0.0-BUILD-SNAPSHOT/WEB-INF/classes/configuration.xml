@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias alias="board" type="com.ch.tm.model.Board" />
+		<typeAlias alias="review" type="com.ch.tm.model.Review" />
+		<typeAlias alias="reviewphoto" type="com.ch.tm.model.ReviewPhoto" />
+		<typeAlias alias="member" type="com.ch.tm.model.Member" />
+		<typeAlias alias="plan" type="com.ch.tm.model.Plan" />
+	</typeAliases>
+	<mappers>
+		<mapper resource="board.xml" />
+		<mapper resource="review.xml" />
+		<mapper resource="member.xml" />
+		<mapper resource="plan.xml" />
+	</mappers>
+</configuration>

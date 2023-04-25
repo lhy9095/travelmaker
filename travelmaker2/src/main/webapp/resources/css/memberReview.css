@@ -1,0 +1,156 @@
+@charset "UTF-8";
+
+body{
+    background: #fafafa;
+}
+
+.nav {
+	float: left;
+	width: 220px;
+	height: 500px;
+	margin-left: 50px;
+}
+
+.nav_ul {
+	list-style-type: none;
+	width: 220px;
+	height: 500px;
+	background-color: #5D9FFF;
+	margin: 0;
+	padding: 0;
+}
+
+.nav_li1 {
+	padding: 25px 0 15px 20px;
+	border-bottom: 2px solid #bbb;
+}
+
+.nav_li1 a {
+	font-size: 23px;
+	font-weight: bold;
+	color: white;
+	text-decoration: none;
+}
+
+.nav_li2 {
+	padding: 10px;
+	padding-left: 20px;
+	font-weight: bold;
+}
+
+.nav_li2 a {
+	text-decoration: none;
+	font-weight: bold;
+	display: block;
+	color: black;
+	font-size: 17px;
+}
+
+.nav_li2:hover {
+	background-color: #fafafa;
+}
+
+.main {
+	margin-left: 430px;
+}
+
+.btn5{
+	text-decoration : none;
+    display: inline-block;
+    width: 70px;
+    height: 35px;
+    background: #5D9FFF;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    float: right;
+    margin: 3px;
+    font-size: 16px;
+}
+
+.btn5:hover {
+	opacity: 0.9;
+}
+
+.headerSpace{
+	height: 120px;	
+}
+
+.td1{
+	width: 300px;
+}
+
+.openModal {
+	cursor: pointer;
+}
+
+h2 {
+	margin: 0;
+	margin-left: 170px;
+	margin-bottom: 30px;
+}
+
+.border_gray {
+	margin: 20px;
+	width: 600px;
+	margin-left: 170px;
+	border-bottom: 1px solid gray;
+}
+
+table{
+	width: 600px;
+	margin-bottom: 10px;
+}
+
+.post-time {
+	text-align: right;
+	padding-right: 15px;
+}
+
+.nickNameTd {
+	width: 60%;
+	padding-left: 10px;
+	font-weight: bold;
+}
+
+.td1 {
+	text-align: center;
+	border: 1px solid #f1f1f1;
+}
+
+.imgDiv {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.openReview {
+	cursor: pointer;
+}
+
+.hideReview {
+	position: relative;
+	background: rgba(255, 255, 255, 0.8);
+	padding-bottom: 5px;
+}
+
+.closeReviewBtn {
+	position: absolute;
+	right: 10px;
+	top: -40px;
+	cursor: pointer;
+	width: 70px;
+    height: 35px;
+    background: #5D9FFF;
+    border-radius: 5px;
+    color: white;
+    border: none;
+	font-size: 16px;
+}
+
+.closeReviewBtn:hover {
+	opacity: 0.9;
+}
+
+

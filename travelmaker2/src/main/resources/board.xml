@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="boardns">
+	<!-- 전체 게시글 수 -->
+	<select id="getTotal" parameterType="board" resultType="integer">
+		select count(*) from board b, member m 
+		<where> b.del != 'y' and b.mno = m.mno
+				<!-- keyword 값이 있으면 검색, 없으면 생략 -->
+				<if test="keyword != null and keyword != ''">
+					and	${search} like '%'||#{keyword}||'%'
+				</if>
+		</where> 
+	</select>
+	
+	<!-- 게시글 전체 목록 -->
+	<select id="list" parameterType="board" resultType="board"> <!-- parameterType="board" -->
+		select * from (select a.*, rowNum rn from (select b.*, m.nickName from board b, member m where b.del != 'y' and b.mno = m.mno
+			<!-- where는 테이블로 부터 데이터 추출 조건 where 뒤에 문장이 있으면 where를 추가하고 없으면 where 생략 -->
+				<!-- keyword 값이 있으면 검색 없으면 생략 -->
+				<if test="keyword != null and keyword != ''">
+					and ${search} like '%'||#{keyword}||'%'
+				</if>
+			order by b.bno desc) a) where rn between #{startRow} and #{endRow}  
+	</select>
+	
+	<!-- 게시글 번호 생성 -->
+	<select id="getMaxNum" resultType="integer">
+		select nvl(max(bno), 0) + 1 from board
+	</select>
+	
+	<!-- 게시글 보기 -->
+	<select id="select" parameterType="integer" resultType="board">
+		select b.*, m.nickName, m.id from board b, member m where bno=#{bno} and b.mno = m.mno order by bno
+	</select>
+	
+	<!-- 게시글 입력 -->
+	<insert id="insert" parameterType="board">
+		insert into board values (#{bno}, #{title}, #{s_date}, #{e_date}, #{loc},
+			 #{content}, sysdate, 0, 'n', #{mno}, #{courseImg})
+	</insert>
+	
+	<!-- 조회수 증가 -->
+	<update id="updateReadCount" parameterType="integer">
+		update board set readcount = readcount + 1 where bno=#{bno}
+	</update>
+	
+	<!-- 게시글 수정 -->
+	<update id="update" parameterType="board">
+		update board set title=#{title}, content=#{content} where bno=#{bno} 
+	</update>
+	
+	<!-- 게시글 삭제 -->
+	<update id="delete" parameterType="integer">
+		update board set del='y' where bno=#{bno}
+	</update>
+	
+	<!-- (관리자 기능) 해당 회원이 좋아요한 게시글 목록 -->
+	<select id="myLikeList" parameterType="map" resultType="board">
+		select * from(select rownum rn, a.* from (select * from board 
+			where del = 'n' and bno in (select bno from likes where mno=#{mno})) a)
+			where rn between #{startRow} and #{endRow}
+	</select>
+	
+	<!-- (관리자 기능) 해당 회원이 쓴 글 수 -->
+	<select id="allMyBoard" parameterType="integer" resultType="integer" >
+		select count(*) from board where del != 'y' and mno = #{mno} 
+	</select>
+	
+	<!-- (관리자 기능) 해당 회원이 쓴 게시글 목록 -->
+	<select id="myBoardList" parameterType="map" resultType="board">
+		select * from (select rownum rn, a.* from (
+		select * from board where del != 'y' and mno=#{mno} order by bno desc) a)
+		where rn between #{startRow} and #{endRow}
+	</select>
+	
+	<!-- (관리자 기능) 게시글 삭제 기능 -->
+	<update id="adminDelete" parameterType="integer">
+		update board set del='a' where bno=#{bno}
+	</update>
+	
+	
+</mapper>

@@ -1,0 +1,148 @@
+@charset "UTF-8";
+
+body {
+	margin: 0;
+}
+
+.wrapper {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 300px;
+	height: 300px;
+	margin-left: -150px;
+	margin-top: -250px;
+	text-align: center;
+} 
+
+.loginForm {
+	height: 220px;
+	display: flex;
+    align-items : center;
+    justify-content:center; 
+    flex-direction: column;
+}
+
+.logoImg {
+	width: 140px;
+	border-radius: 70%;
+	background-color: rgba( 255, 255, 255, 0.7 );
+	padding: 10px;
+}
+
+.wrap {
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    background-image: 
+        radial-gradient(at top left, #5D9FFF, transparent),
+        radial-gradient(at top right, #68e0cf, transparent),
+        radial-gradient(at bottom left, #B8DCFF, transparent);
+}
+
+.id, .password {
+	width : 250px;
+	height: 30px;
+	margin: 5px;
+	border-radius: 6px;
+	border: none;
+	outline-color: gray;
+}
+
+.id:focus, .password:focus {
+	outline: 2px solid #808080;
+}
+
+.submitBtn {
+	width : 260px;
+	height: 35px;
+	margin: 10px 5px;
+	border:0 solid black;
+	background-color: #373b44;
+	opacity: 0.3;
+	color: white;
+	transition: background 0.4s ease-in-out,
+	            color 0.4s ease-in-out;
+	font-weight: bold;
+	border-radius: 7px;
+	cursor: pointer;
+}
+
+.submitBtn:hover {
+	opacity: 0.6;
+	background-color: white;
+	color: #373b44;
+}
+
+
+.link {
+ 	text-decoration-line: none;
+ 	font-size: 14px;
+ 	margin: 5px;
+ 	color: #383838;
+}
+
+.link:hover {
+	color: white;
+	opacity: 0.8;
+}
+
+
+/* 움직이는 오로라 시작 */  
+/* .wrap {
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+    position: relative;
+    overflow:hidden;
+  }
+
+.aurora-base {
+    position: absolute;
+    filter: blur(50px);
+    opacity: 0.5;
+ }
+ 
+.aurora-one {
+    border-radius: 100%;
+    width: 80vw;
+    height: 80vh;
+    background-color: #50c8ec;
+    left:-50px;
+    top:-300px;
+    z-index: 3; 첫 번째 그라데이션이 맨 앞으로 오도록 조정
+    animation: rotate 12s linear infinite; 키프레임 애니메이션 적용
+    transform:rotate(0) translate(80px) rotate(0);  
+}
+
+.aurora-two {
+    width: 70vw;
+    height: 70vh;
+    background-color: #339c4e;
+    bottom:-30px;
+    left:-80px;
+}
+
+.aurora-three {
+    border-radius: 40%; 그라데이션이 부드럽게 겹치도록 영역을 좀더 둥글게
+    width: 50vw;
+    height: 100vh;
+    bottom:-80px;
+    right:-200px;
+    background-color: #6658b3;
+    animation: reverse 8s linear infinite; 키프레임 애니메이션 적용
+    transform:rotate(0) translate(100px) rotate(0);    
+}
+
+@keyframes rotate {
+    100% {
+        transform:rotate(1turn) translate(100px) rotate(-1turn);
+    }
+}
+@keyframes reverse {
+    100% {
+        transform:rotate(-1turn) translate(100px) rotate(1turn);
+    }
+} */
+
+/* 움직이는 오로라 시작 끝 */  

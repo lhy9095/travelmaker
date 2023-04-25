@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace xml의 이름 -->
+<mapper namespace="reviewns">
+	<!-- table의 컬럼명과 class의 멤버변수명이 일치하지 않을 경우에는 resultMap이 필요 -->
+	<resultMap type="reviewphoto" id="reviewphotoResult">
+		<result property="rpno" column="rpno" />
+		<result property="mno" column="mno" />
+		<result property="rno" column="rno" />
+		<result property="imgName" column="imgName" />
+		<collection property="review" resultMap="reviewResult"></collection>
+	</resultMap>
+	
+	<resultMap type="review" id="reviewResult">
+		<!-- property : class의 멤버변수명, column : 테이블의 컬럼명 -->
+		<result property="rno" column="rno" />
+		<result property="reply_content" column="reply_content" />
+		<result property="reg_date" column="reg_date" />
+		<result property="update_date" column="update_date" />
+		<result property="del" column="del" />
+		<result property="mno" column="mno" />
+		<result property="bno" column="bno" />
+	</resultMap>
+	
+	<!-- 해당 게시글의 댓글 사진 목록 -->
+	<select id="listphoto" parameterType="integer" resultMap="reviewphotoResult">
+		select p.*, r.* from reviewphoto p, review r where p.rno=r.rno and bno=#{bno} order by p.rno desc
+	</select>
+	
+	<!-- 해당 게시글의 댓글 목록 -->
+	<select id="list" parameterType="integer" resultType="review">
+		select r.*, m.nickName from review r, member m where bno=#{bno} and r.mno = m.mno order by rno
+	</select>
+	
+	<!-- 댓글 번호 생성 -->
+	<select id="getMaxRno" resultType="integer">
+		select nvl(max(rno),0) + 1 rno from review
+	</select>
+	
+	<!-- 댓글 입력 -->
+	<insert id="insert" parameterType="review">
+		insert into review values (#{rno},#{reply_content},sysdate,sysdate,'n',#{mno},#{bno})
+	</insert>
+	
+	<!-- 댓글 사진 입력 -->
+	<insert id="insertPhoto" parameterType="reviewphoto">
+		insert into reviewphoto values (reviewphoto_seq.nextval, 1, #{rno}, #{imgName})
+	</insert>
+	
+	<!-- 댓글 삭제 -->
+	<update id="delete" parameterType="review">
+		update review set del='y' where rno=#{rno}
+	</update>
+	
+	<!-- 댓글 수정 -->
+	<update id="update" parameterType="review">
+		update review set reply_content=#{reply_content}, update_date=sysdate where rno=#{rno}
+	</update>
+	
+	<!-- 해당 게시글의 댓글 수 -->
+	<select id="reviewTotal" parameterType="integer" resultType="integer">
+		select count(*) from review where bno = #{bno} and del = 'n'
+	</select>
+	
+	<!-- (관리자 기능) 해당 회원이 작성한 댓글 목록 -->
+	<select id="memberRvList" parameterType="integer" resultType="review">
+		select r.*, m.nickName from review r, member m where r.mno = #{mno} and r.mno = m.mno order by update_date desc
+	</select>
+	
+	<!-- (관리자 기능) 해당 회원이 작성한 댓글 사진 목록 -->
+	<select id="memberRpList" parameterType="integer" resultMap="reviewphotoResult">
+		select p.*, r.* from reviewphoto p, review r where p.rno = r.rno and r.mno=#{mno} order by p.rno desc
+	</select>
+	
+	<!-- (관리자 기능) 댓글 삭제 -->
+	<update id="rvDelete" parameterType="integer">
+		update review set del='a' where rno = #{rno}
+	</update>
+</mapper>

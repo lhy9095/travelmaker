@@ -1,0 +1,197 @@
+@charset "UTF-8";
+
+body{
+    background: #fafafa;
+}
+
+.nav {
+	float: left;
+	width: 220px;
+	height: 500px;
+	margin-left: 50px;
+}
+
+.main {
+	width: 500px;
+	height: 500px;
+	margin-left: 430px;
+	border-radius: 15px;
+	border: 2px solid #bbb;
+	background-color: white;
+	margin-bottom: 200px;
+	
+}
+
+.nav_ul {
+	list-style-type: none;
+	width: 220px;
+	height: 500px;
+	background-color: #5D9FFF;
+	margin: 0;
+	padding: 0;
+}
+
+.nav_li1 {
+	padding: 25px 0 15px 20px;
+	border-bottom: 2px solid #bbb;
+}
+
+.nav_li1 a {
+	font-size: 23px;
+	font-weight: bold;
+	color: white;
+	text-decoration: none;
+}
+
+.nav_li2 {
+	padding: 10px;
+	padding-left: 20px;
+	font-weight: bold;
+}
+
+.nav_li2 a {
+	text-decoration: none;
+	font-weight: bold;
+	display: block;
+	color: black;
+	font-size: 17px;
+}
+
+.nav_li2:hover {
+	background-color: #fafafa;
+}
+
+.main_header {
+	border-bottom: 2px solid #bbb;
+}
+.main_header h3 {
+	margin-left: 30px;
+	margin-top: 28px;
+	margin-bottom: 25px;
+}
+
+.formDiv {
+	margin-left: 50px;
+	margin-top: 20px;
+}
+
+.textBox {
+	position: relative;
+	border:0;
+	width: 220px;
+	border-bottom: 2px solid #ececec;
+}
+
+.textBox:focus {
+	outline: none;
+	border-bottom: 2px solid #5D9FFF;
+}
+
+.tb1 {
+	margin-left: 50px;
+}
+
+.tb2 {
+	margin-left: 11px;
+}
+
+.tb3 {
+	margin-left: 64px;
+}
+
+.tb4 {
+	margin-left: 48px;
+}
+
+.tb5 {
+	margin-left: 79px;
+}
+
+.formDiv div {
+	margin: 10px;
+	margin-bottom: 18px;
+}
+
+.submitBtn {
+	width : 75px;
+	height: 35px;
+	border:0 solid black;
+	background-color: #5D9FFF;
+	color: white;
+	font-weight: bold;
+	font-size: 15px;
+	border-radius: 7px;
+	cursor: pointer;
+	margin-left: 125px;
+	margin-top: 25px;
+}
+
+.submitBtn:hover {
+	opacity: 0.9;
+}
+
+.deleteBtn {
+	width : 75px;
+	height: 35px;
+	margin-bottom: 10px;
+	border:0 solid black;
+	background-color: #D0D0D0;
+	color: white;
+	font-weight: bold;
+	font-size: 15px;
+	border-radius: 7px;
+	cursor: pointer;
+}
+
+.deleteBtn:hover {
+	opacity: 0.9;
+}
+
+.formDiv span {
+	font-weight: bold;
+}
+
+.chkIcon {
+	width: 22px;
+	position: absolute;
+	margin-left: -31px;
+	cursor: pointer;
+}
+
+.chk {
+	position: relative;
+}
+
+.wrap {
+	position: relative;
+}
+
+.chkDiv {
+	margin: 0 !important;
+	left: 120px;
+	font-size: 11px;
+	position: absolute;
+	color: #E84855;
+	
+}
+
+.chkBtn {
+	width : 67px;
+	height: 30px;
+	border:0 solid black;
+	background-color: #5D9FFF;
+	color: white;
+	font-weight: bold;
+	font-size: 14px;
+	border-radius: 7px;
+	cursor: pointer;
+}
+
+.chkBtn:hover {
+	opacity: 0.9;
+}
+
+.headerSpace{
+	height: 120px;	
+}
+

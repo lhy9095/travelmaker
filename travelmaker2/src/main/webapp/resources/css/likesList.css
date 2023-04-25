@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+.nav {
+	float: left;
+	width: 220px;
+	height: 500px;
+	margin-left: 50px;
+}
+
+.nav_ul {
+	list-style-type: none;
+	width: 220px;
+	height: 500px;
+	background-color: #5D9FFF;
+	margin: 0;
+	padding: 0;
+}
+
+.nav_li1 {
+	padding: 25px 0 15px 20px;
+}
+
+.nav_li1 a {
+	font-size: 23px;
+	font-weight: bold;
+	color: white;
+	text-decoration: none;
+}
+
+.nav_li2 {
+	padding: 10px;
+	padding-left: 20px;
+	font-weight: bold;
+}
+.nav_li2 a {
+	text-decoration: none;
+	font-weight: bold;
+	display: block;
+	color: black;
+	font-size: 17px;
+}
+
+.nav_li2:hover {
+	background-color:#fafafa;
+}
+
+.likeslist {
+	display: inline-block;
+	margin-left: 360px;
+	margin-top: -120px;	
+}
+
+.headerSpace{
+	height: 120px;	
+}
+
+.container {
+	margin-bottom: 50px;
+}
+
+

@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+body {
+	margin: 0;
+}
+
+.wrap {
+	width: 100vw;
+    height: 100vh;
+    background-color: #fafafa;
+}
+
+.findForm {
+	border: 1px solid #bbb;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 400px;
+	height: 370px;
+	margin-left: -200px;
+	margin-top: -185px;
+	background-color: white;
+}
+
+.formDiv {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.linkDiv {
+	width: 80%;
+	margin: 0 auto;
+}
+
+h2 {
+	text-align: center;
+	margin-bottom: 50px;
+	margin-top: 30px;
+}
+
+.textBox {
+	position: relative;
+	border:0;
+	width: 300px;
+	border-bottom: 2px solid #ececec;
+	margin-bottom: 30px;
+}
+
+.textBox:focus {
+	outline: none;
+	border-bottom: 2px solid #5D9FFF;
+}
+
+input::placeholder {
+  color: #9A9A9A;
+  font-style: italic;
+}
+
+.submitBtn {
+	width : 310px;
+	height: 35px;
+	margin: 20px auto;
+	margin-bottom: 10px;
+	border:0 solid black;
+	background-color: #5D9FFF;
+	color: white;
+	font-weight: bold;
+	border-radius: 7px;
+	cursor: pointer;
+}
+
+.submitBtn:hover {
+	opacity: 0.9;
+}
+
+.link {
+ 	text-decoration-line: none;
+ 	font-size: 14px;
+ 	margin: 20px;
+ 	color: #383838;
+}
+
+.link:hover {
+	font-weight: bold;
+	opacity: 0.8;
+}
